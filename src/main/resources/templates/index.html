@@ -6,9 +6,11 @@
 <div class="text-center">
   <div class="container">
     <h1>Add n to 10</h1>
-    <p>To use this back-end service, modify the URL by appending a forward-slash and the number you want to add to 10.</p>
-    <p>For example, if you wish to add 66 to 10 then the URL should look as follows: </p>
-    <p th:text="@{/60}"/>
+    <p>To use this back-end service, modify the URL by appending a forward-slash followed by the number (integer) you want to add to 10.</p>
+    <p>For example, if you wish to add 66 to 10 modify the URL to look as follows: </p>
+    <p>
+    	<a th:href="@{https://my-bootcamp-app.herokuapp.com/66}"><label th:text="@{https://my-bootcamp-app.herokuapp.com/66}"></label></a>
+   	</p>
   </div>
 </div>
 </body>
