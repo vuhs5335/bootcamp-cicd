@@ -8,7 +8,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class AddController {
 
 	@GetMapping("/{toAdd}")
-	  AddResponse addTen(@PathVariable int toAdd) {
-	    return new AddResponse(toAdd);
-	  }
+	AddResponse addTen(@PathVariable String toAdd) throws Exception {
+
+		int a = 0;
+		String message = "OK";
+
+		try {
+			a = Integer.valueOf(toAdd);
+		} catch (Exception e) {
+			a = -10;
+			message = toAdd + " is an invalid argument.";
+		}
+
+		return new AddResponse(a, message);
+	}
 }
