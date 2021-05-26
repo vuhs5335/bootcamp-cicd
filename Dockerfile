@@ -20,10 +20,10 @@ RUN echo "Context Root : $CONTEXT_ROOT"
 WORKDIR /
 
 # Take the jar from the build folder and add it as hello-world.jar. This will require there to be a build already in that directory. Please modify the first path to your needs.
-COPY target/java-getting-started-1.0.jar $ARTIFACT_NAME
+COPY target/java-getting-started-1.0.jar bootcamp-demo.jar
 
 # Remember how we mapped container ports to our host's port? This is how you expose the port you wish. It exposes PORT 8080.
 EXPOSE 8080
 
 # Invoke java executable and run the hello-world.jar file. There is only ONE CMD instruction in a Dockerfile and it is used as default to executing the container. The CMD form can vary, refer to the Docker Docs: Dockerfile Reference on formatting these shell commands.
-CMD java -jar $ARTIFACT_NAME
+CMD java -jar bootcamp-demo.jar
