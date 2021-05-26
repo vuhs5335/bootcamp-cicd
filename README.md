@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # java-getting-started
 
 A barebones Java app, which can easily be deployed to Heroku.
@@ -38,3 +39,7 @@ $ heroku open
 For more information about using Java on Heroku, see these Dev Center articles:
 
 - [Java on Heroku](https://devcenter.heroku.com/categories/java)
+=======
+# bootcamp-app
+
+>>>>>>> da8995ffb8c839d9bcb76be18b15b9badc1ab328
