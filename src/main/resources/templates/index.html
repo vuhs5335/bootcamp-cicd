@@ -7,9 +7,10 @@
   <div class="container">
     <h1>Add n to 10</h1>
     <p>To use this back-end service, modify the URL by appending a forward-slash followed by the number (integer) you want to add to 10.</p>
-    <p>For example, if you wish to add 66 to 10 modify the URL to look as follows: </p>
+    <p>For example, if you wish to add 66 to 10 modify the URL by appending a '/' and 66: </p>
     <p>
-    	<a th:href="@{https://my-bootcamp-app.herokuapp.com/66}"><label th:text="@{https://my-bootcamp-app.herokuapp.com/66}"></label></a>
+    	<!-- <a th:href="@{https://my-bootcamp-app.herokuapp.com/66}"><label th:text="@{https://my-bootcamp-app.herokuapp.com/66}"></label></a> -->
+   		<a th:href="@{/66}"><label th:text="@{../66}"></label></a>
    		<br/>(Click the link)
    	</p>
   </div>
