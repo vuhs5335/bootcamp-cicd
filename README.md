@@ -1,6 +1,6 @@
 # Ports
 
-Map any port in your local machine to port container's default exposed port of 8080. (See VARIABLES)
+Map any port in your local machine to port container's default exposed port of 8080.
 
 # URLs
 
@@ -10,11 +10,11 @@ The application will run from the root (no context path)
 
 ## Usage
 
-*docker build -t bootcamp5 --build-arg ARTIFACT_NAME=bootcamp-demo.jar --e "PORT=5000"*
+*docker build -t bootcamp5 --build-arg ARTIFACT_NAME=bootcamp-demo.jar --build-arg CR=myapp .*
 
 **ARTIFACT_NAME** : Sets the name of the .jar file that will be generated. .jar extension is required. 
 
-**PORT** : Defines the exposed port of the container. Use this to override default port 8080
+**CR** : Context Root : Sets the application context root (not functional)
 
 # Docker Repository
 
