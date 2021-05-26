@@ -1,0 +1,24 @@
+include:
+  - project: 'tmobile/templates'
+    file:
+      - '/gitlab-ci/.tmo.global.common.gitlab-ci.yml'
+      - '/gitlab-ci/.tmo.function.gradleBuild.gitlab-ci.yml'
+      - '/gitlab-ci/.tmo.job.gradleBuild.gitlab-ci.yml'
+
+stages:
+  - tmo
+  - test
+  - build
+
+build:
+  extends: .gradle-build
+  stage: build
+  artifacts:
+    name: '$CI_COMMIT_REF_SLUG-$CI_PIPELINE_IID'
+    paths:
+      - '$BUILD_ARTIFACTS'
+    expire_in: 1 week
+
+test:
+  stage: test
+  script: echo "testing in progress"
