@@ -15,7 +15,7 @@ WORKDIR /
 # Take the jar from the build folder and add it as hello-world.jar. This will require there to be a build already in that directory. Please modify the first path to your needs.
 COPY target/java-getting-started-1.0.jar $ARTIFACT_NAME
 
-# Usage : docker build -t bootcamp5 --build-arg ARTIFACT_NAME=bootcamp-demo.jar --e PORT=5000
+# Usage : docker build -t bootcamp5 --build-arg ARTIFACT_NAME=bootcamp-demo.jar --e "PORT=5000"
 ENV PORT 8080
 
 RUN echo "Port: $PORT"
@@ -24,4 +24,4 @@ RUN echo "Port: $PORT"
 EXPOSE $PORT
 
 # Invoke java executable and run the hello-world.jar file. There is only ONE CMD instruction in a Dockerfile and it is used as default to executing the container. The CMD form can vary, refer to the Docker Docs: Dockerfile Reference on formatting these shell commands.
-CMD java -jar bootcamp-app.jar
+CMD java -jar $ARTIFACT_NAME
