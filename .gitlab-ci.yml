@@ -4,12 +4,42 @@ include:
       - '/gitlab-ci/.tmo.global.common.gitlab-ci.yml'
       - '/gitlab-ci/.tmo.function.gradleBuild.gitlab-ci.yml'
       - '/gitlab-ci/.tmo.job.mavenBuild.gitlab-ci.yml'
+      - '/gitlab-ci/.tmo.function.docker.gitlab-ci.yml'
+      - '/gitlab-ci/.tmo.job.dockerScan.gitlab-ci.yml'
+      - '/gitlab-ci/.tmo.function.duck-deploy.gitlab-ci.yml'
 
 stages:
   - tmo
   - test
   - build
+  - package
+  - ci
+  - deploy
+
+variables: 
+  EXTRA_DOCKER_TAG: "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:$CONTAINER_VERSION.$CI_PIPELINE_IID"
+  DUCK_DEBUG: "true"
+  DUCK_VERSION: "latest"
   
 test:
   stage: test
   script: echo "testing in progress"
+
+docker_package:
+  stage: package
+  extends: .docker-package
+
+deploy-dev:
+  stage: deploy
+  extends: .duck_deploy
+  variables:
+    CONDUCKTOR_CONFIG_PATH: "./dev-deploy-info.yml"
+    CONDUCKTOR_NS: "wfo-dev-duck-dev-w2"
+    CONDUCKTOR_TARGET: "duck-dev-w2"
+    DUCK_DEBUG: "true"
+    GIT_DEPTH: 1
+  secrets:
+    CONDUCKTOR_PASS:
+      vault: workforce-transformation/onboarding-bootcamps/service_principal_password@tmobile
+  environment:
+    name: dev
