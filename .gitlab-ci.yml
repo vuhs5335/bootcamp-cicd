@@ -33,7 +33,7 @@ deploy-dev:
   stage: deploy
   extends: .duck_deploy
   variables:
-    CONDUCKTOR_CONFIG_PATH: "./dev-deploy-info.yaml.j2"
+    CONDUCKTOR_CONFIG_PATH: "./dev_deploy_info.yaml"
     CONDUCKTOR_NS: "wfo-dev-duck-dev-w2"
     CONDUCKTOR_TARGET: "duck-dev-w2"
     DUCK_DEBUG: "true"
